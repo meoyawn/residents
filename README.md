@@ -4,6 +4,8 @@ A mobile-first resident decision platform for buildings and building collections
 
 The local application is fully connected to local D1. WhatsApp delivery is a sandbox until you configure Meta. No real messages are sent by the sandbox. All bundled buildings, residents, discussions, prices and votes are fictional examples. No private chat exports or production data are included.
 
+![Residents dashboard in the local sandbox with fictional building data](docs/images/dashboard.png)
+
 ## Run locally
 
 Use Node 22.12+ and `aube`. Run from this directory:
