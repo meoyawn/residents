@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "residents",
+  "main": "src/server.ts",
+  "compatibility_date": "2026-10-14",
+  "compatibility_flags": ["nodejs_compat"],
+  "upload_source_maps": true,
+  "observability": { "enabled": true },
+  "triggers": { "crons": ["23 2 * * *"] },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "residents",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "AUTH_MODE": "whatsapp",
+    "WHATSAPP_TEMPLATE_NAME": "residents_login",
+    "WHATSAPP_TEMPLATE_LANGUAGE": "ru",
+    "WHATSAPP_GRAPH_VERSION": "v25.0"
+  }
+}

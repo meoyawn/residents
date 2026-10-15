@@ -1,0 +1,5 @@
+AUTH_MODE=development
+OTP_SECRET=replace-with-a-random-secret-at-least-32-characters
+WHATSAPP_ACCESS_TOKEN=
+WHATSAPP_PHONE_NUMBER_ID=
+BOOTSTRAP_WEBMASTER_PHONE=

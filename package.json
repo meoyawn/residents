@@ -1,0 +1,49 @@
+{
+  "name": "residents",
+  "version": "0.1.0",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meoyawn/residents.git"
+  },
+  "private": true,
+  "type": "module",
+  "packageManager": "aube@2.5.1",
+  "scripts": {
+    "setup:local": "node --import tsx scripts/setup-local.ts",
+    "dev": "vite dev --host 0.0.0.0",
+    "build": "vite build",
+    "check": "tsc --noEmit",
+    "preview": "vite preview --host 0.0.0.0",
+    "cf:types": "wrangler types",
+    "db:migrate": "wrangler d1 migrations apply residents --local",
+    "db:seed": "wrangler d1 execute residents --local --file=seeds/demo.sql",
+    "db:setup": "aube run db:migrate && aube run db:seed",
+    "db:migrate:remote": "wrangler d1 migrations apply residents --remote --config wrangler.local.jsonc",
+    "deploy": "aube run check && RESIDENTS_WRANGLER_CONFIG=wrangler.local.jsonc aube run build && wrangler deploy",
+    "test": "aube run build && node --import tsx --test tests/integration.test.ts",
+    "test:ui": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "@tanstack/solid-router": "^1.170.41",
+    "@tanstack/solid-start": "^1.169.2",
+    "lucide-solid": "^0.468.0",
+    "solid-js": "^1.9.10",
+    "zod": "^4.3.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.64.0",
+    "@cloudflare/workers-types": "5.20261014.1",
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^24.0.0",
+    "@vitejs/plugin-basic-ssl": "^2.2.0",
+    "miniflare": "5.20261012.0-beta",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4",
+    "vite-plugin-solid": "^2.11.0",
+    "wrangler": "4.151.0"
+  }
+}
